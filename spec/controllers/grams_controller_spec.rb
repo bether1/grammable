@@ -1,13 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe GramsController, type: :controller do
-  describe "grams#index action" do
-    it "should successfully show the page" do
-      get :index
+  describe "grams#show action" do
+    it "should successfully show the page if the gram is found" do
+      gram = FactoryBot.create(:gram)
+      get :show, params: { id: gram.id }
       expect(response).to have_http_status(:success)
     end
-  end
 
+    it "should return a 404 error if the gram is not found" do
+      get :show, params: { id: 'TACOCAT' }
+      expect(response).to have_http_status(:not_found)
+    end
+  end
 
   describe "grams#new action" do
     it "should require users to be logged in" do
@@ -16,11 +21,6 @@ RSpec.describe GramsController, type: :controller do
     end
 
     it "should successfully show the new form" do
-#      User.create(
-#        email: "dummyEmail1@gmail.com",
-#        password: "secretPassword",
-#        password_confirmation: "secretPassword"
-#      )
       user = FactoryBot.create(:user)
       sign_in user
 
@@ -38,11 +38,6 @@ RSpec.describe GramsController, type: :controller do
     end
 
     it "should successfully create a new gram in our database" do
-#      User.create(
-#        email: "dummyEmail1@gmail.com",
-#        password: "secretPassword",
-#        password_confirmation: "secretPassword"
-#      )
       user = FactoryBot.create(:user)
       sign_in user
 
@@ -55,11 +50,6 @@ RSpec.describe GramsController, type: :controller do
     end
 
     it "should properly deal with validation errors" do
-#      User.create(
-#        email: "dummyEmail1@gmail.com",
-#        password: "secretPassword",
-#        password_confirmation: "secretPassword"
-#      )
       user = FactoryBot.create(:user)
       sign_in user
 
