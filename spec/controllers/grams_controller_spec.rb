@@ -1,17 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe GramsController, type: :controller do
-<<<<<<< HEAD
+
 
   describe "grams#index action" do
     it "should successfully show the page" do
       get :index
-=======
   describe "grams#show action" do
     it "should successfully show the page if the gram is found" do
       gram = FactoryBot.create(:gram)
       get :show, params: { id: gram.id }
->>>>>>> 13720aa4a5de007da4cc24ff2a39b08c3d7d040e
+
       expect(response).to have_http_status(:success)
     end
 
