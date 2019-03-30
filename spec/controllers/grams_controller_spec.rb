@@ -6,6 +6,11 @@ RSpec.describe GramsController, type: :controller do
   describe "grams#index action" do
     it "should successfully show the page" do
       get :index
+    end
+  end
+
+
+  
   describe "grams#show action" do
     it "should successfully show the page if the gram is found" do
       gram = FactoryBot.create(:gram)
