@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+***skipped lessons 11 and 12 due to factory bot issues
