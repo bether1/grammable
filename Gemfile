@@ -65,6 +65,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem "factory_bot_rails"
 end
+
 gem 'popper_js', '~> 1.14.5'
 
 gem 'bootstrap', '~> 4.3.1'
